@@ -15,7 +15,7 @@
           <span v-text="getIndex(scope.$index)"> </span>
         </template>
       </el-table-column>
-      <el-table-column align="center" label="昵称" prop="nickname" style="width: 60px;"></el-table-column>
+      <el-table-column align="center" label="姓名" prop="nickname" style="width: 60px;"></el-table-column>
       <el-table-column align="center" label="用户名" prop="username" style="width: 60px;"></el-table-column>
       <el-table-column align="center" label="角色" width="100">
         <template slot-scope="scope">
