@@ -18,13 +18,9 @@
       <el-table-column align="center" prop="coursName" label="课程名称" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="coursTime" label="上课时间" style="width: 60px;"></el-table-column>
       <el-table-column align="center" prop="teacher" label="教师" style="width: 60px;"></el-table-column>
-      <el-table-column align="center" prop="addr" label="上课地点" style="width: 60px;"></el-table-column>
+      <el-table-column align="center" prop="addr" v-code="2" label="上课地点" style="width: 60px;"></el-table-column>
 
-      <el-table-column align="center" label="创建时间" width="170">
-        <template slot-scope="scope">
-          <span>{{scope.row.createTime}}</span>
-        </template>
-      </el-table-column>
+      <el-table-column align="center" prop="createTime" label="创建时间" width="170"></el-table-column>
       <el-table-column align="center" label="管理" width="200" v-if="hasPerm('coursInfo:update')">
         <template slot-scope="scope">
           <el-button type="primary" icon="edit" @click="showUpdate(scope.$index)">修改</el-button>
@@ -92,12 +88,13 @@
           coursName: "",
           coursTime: "",
           teacher: "",
-          addr: ""
+          addr: "",
+          type:"10"
         }
       }
     },
     created() {
-      this.getList();
+     this.getList();
     },
     methods: {
       getList() {
@@ -120,7 +117,7 @@
       handleSizeChange(val) {
         //改变每页数量
         this.listQuery.pageRow = val
-        this.handleFilter();
+        this.getList();
       },
       handleCurrentChange(val) {
         //改变页码
